@@ -1,25 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import AnimalShow from './AnimalsShow';
+
+
+const getRandomAnimal = () => {
+
+    const animals = ["dog", "cat","horse","cow","horse","gator"];
+
+    return animals[Math.floor(Math.random()*animals.length)];
+}
+
+// Here for future projects, we only call the parent componenst and the routing wuth the routes
+function App(){
+
+    const [animals,setAnimals] = useState([]);
+
+    const handleClick = () => {
+        setAnimals(
+            [...animals,getRandomAnimal()] // List i had before flattended plus the new animal 
+        );
+    }
+
+    const RenderedAnimals = animals.map((item,index) => <AnimalShow type= {item} key = {index}/>);
+
+    return (
+        <div>
+            <button onClick={handleClick}>Add animal</button>
+            <div>{RenderedAnimals}</div>
+        </div>
+    );
 }
 
 export default App;
