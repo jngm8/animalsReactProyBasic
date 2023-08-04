@@ -1,26 +1,22 @@
 .app{
-    /* display: grid;
-    gap:20px;
-    grid-template-columns: repeat(auto-fill,minmax(200px,1fr)); */
-
     display:flex;
     flex-direction: column;
     align-items: center;
 }
 
+.animals-list{
+
+    display:flex; /*Como se va a llenar el espacio y sus dimensiones*/
+    flex-direction: row; /*Permite que los elementos se agreguen en la fila, es decri, horizontalmente*/
+    flex-wrap: wrap; /*Permite que los elemtneots se apilen hacia abajo*/
+    justify-content: center;
+}
+
 button{
-    background-color: lightgreen;
+    background-color: lightblue;
     border: 1px solid green;
     border-radius: 3px;
     font-size: 20px;
     padding: 10px;
     width: 30%;
-}
-
-
-.animals-list{
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
 }
