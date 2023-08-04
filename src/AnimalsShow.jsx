@@ -6,6 +6,8 @@ import gator from './svg/gator.svg';
 import horse from './svg/horse.svg';
 import heart from './svg/heart.svg';
 
+import { useState } from 'react';
+
 const mapOfAnimals = {
     bird,
     cat,
@@ -16,10 +18,23 @@ const mapOfAnimals = {
 }
 
 
-function AnimalShow({type,index}){
+function AnimalShow({type}){
+
+    const [click,setClick] = useState(0);
+
+    const handleClick = () => {
+        setClick(click + 1);
+    }
+
     return(
-            <div>
+            <div onClick={handleClick}>
                 <img alt="" src= {mapOfAnimals[type]}></img>
+                <img
+                    alt = "heart"
+                    src={heart}
+                    style = {{width: 10 * 10*click +'px'}}
+                >
+                </img>
             </div>
     )
 }

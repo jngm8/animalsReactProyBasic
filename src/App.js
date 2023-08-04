@@ -17,7 +17,7 @@ function App(){
 
     const handleClick = () => {
         setAnimals(
-            [...animals,getRandomAnimal()] // List i had before flattended plus the new animal 
+            [...animals,getRandomAnimal()] // List I had before flattended plus the new animal 
         );
     }
 
